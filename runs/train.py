@@ -26,10 +26,10 @@ with mlflow.start_run(experiment_id=1):
     )
 
     params = {
-        'criterion': 'gini',
-        'max_depth': None,
-        'min_samples_split': 2,
-        'class_weight': None,
+        'criterion': 'entropy',
+        'max_depth': 10,
+        'min_samples_split': 5,
+        'class_weight': 'balanced',
     }
     model = DecisionTreeClassifier(**params)
     model.fit(X_train, y_train)
