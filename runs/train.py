@@ -26,12 +26,13 @@ with mlflow.start_run(experiment_id=1):
     )
 
     params = {
-        'criterion': 'entropy',
-        'max_depth': 10,
-        'min_samples_split': 5,
-        'class_weight': 'balanced',
+        'random_state': 42,
+        'C': 1.0,
+        'l1_ratio': 0.0,
+        'solver': 'lbfgs',
+        'class_weight': None,
     }
-    model = DecisionTreeClassifier(**params)
+    model = LogisticRegression(**params)
     model.fit(X_train, y_train)
 
     y_pred = model.predict(X_test)
